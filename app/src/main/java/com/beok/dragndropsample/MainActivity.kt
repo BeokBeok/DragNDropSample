@@ -3,6 +3,7 @@ package com.beok.dragndropsample
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
@@ -10,6 +11,7 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import com.beok.dragndropsample.dragndrop.DragContainer
 import com.beok.dragndropsample.ui.theme.DragNDropSampleTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,22 +24,14 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    DragContainer {
+                        Column {
+                            RunePane()
+                            RuneWordPane()
+                        }
+                    }
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    DragNDropSampleTheme {
-        Greeting("Android")
     }
 }
